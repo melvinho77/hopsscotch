@@ -1,0 +1,12 @@
+dependencies:
+- name: adminpanel
+  repository: file://./charts/adminpanel
+  version: 0.4.0
+- name: backend
+  repository: file://./charts/backend
+  version: 0.4.0
+- name: application
+  repository: file://./charts/app
+  version: 0.4.0
+digest: sha256:08ba0a786533ac92e0533202864579ca86adfa8d07b1f3cab87371095e1895db
+generated: "2024-05-14T17:01:58.076922275+08:00"
