@@ -1,7 +1,9 @@
 replicaCount: 1
 
+namespace: sige-test-devops
+
 image:
-  repository: hoppscotch/hoppscotch-frontend
+  repository: hoppscotch/hoppscotch-backend
   tag: latest
   pullPolicy: Always
   pullSecret: # regcred
@@ -11,7 +13,7 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  containerPort: 8080
+  containerPort: 3170
 
 ingress:
   enabled: true
@@ -19,33 +21,36 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: app.hoppscotch
+    - host: backhopp.hoppscotch
       paths: ["/"]
-  tls: []
+  tls:
+    - secretName: sige-test.com-tls-secret
+      hosts:
+        - hoppscotch-backend.sige-test.com
 
 extra_labels:
   exposed-by-ingress: 'true'
 
 resources:
   limits:
-    cpu: 200m
-    memory: 256Mi
+    cpu: 1
+    memory: 1536Mi
   requests:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 500m
+    memory: 1536Mi
 
 
 probes:
-  readinessProbe_path: /
+  readinessProbe_path: /ping
   readinessProbe_type: httpGet
   readinessProbe:
     initialDelaySeconds: 10
     periodSeconds: 5
-    failureThreshold: 15
+    failureThreshold: 20
 
   livenessProbe_type: httpGet
-  livenessProbe_path: /
+  livenessProbe_path: /ping
   livenessProbe:
-    initialDelaySeconds: 10
-    periodSeconds: 5
+    initialDelaySeconds: 100
+    periodSeconds: 30
     failureThreshold: 10

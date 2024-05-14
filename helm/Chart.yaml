@@ -1,0 +1,15 @@
+apiVersion: v2
+name: hoppscotch-system
+description: Helm chart for hoppscotch-app which contains adminpanel, app & backend.
+version: 0.1.0
+appVersion: 1.0.0
+dependencies:
+  - name: adminpanel
+    version: "0.1.0"
+    repository: "file://./charts/adminpanel"
+  - name: backend
+    version: "0.1.0"
+    repository: "file://./charts/backend"
+  - name: app
+    version: "0.1.0"
+    repository: "file://./charts/app"

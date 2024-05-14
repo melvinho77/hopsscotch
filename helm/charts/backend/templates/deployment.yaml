@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "hoppscotch.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
 {{ include "hoppscotch.labels" . | indent 4 }}
 {{ include "hoppscotch.extra_labels" . | indent 4 }}

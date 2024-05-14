@@ -1,10 +1,12 @@
 replicaCount: 1
 
+namespace: sige-test-devops
+
 image:
-  repository: hoppscotch/hoppscotch-admin
+  repository: hoppscotch/hoppscotch-frontend
   tag: latest
   pullPolicy: Always
-# pullSecret: regcred
+  pullSecret: # regcred
 
 nameOverride: ""
 fullnameOverride: ""
@@ -19,9 +21,12 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: admin.hoppscotch
+    - host: app.hoppscotch
       paths: ["/"]
-  tls: []
+  tls:
+    - secretName: sige-test.com-tls-secret
+      hosts:
+        - hoppscotch-app.sige-test.com
 
 extra_labels:
   exposed-by-ingress: 'true'
@@ -46,6 +51,6 @@ probes:
   livenessProbe_type: httpGet
   livenessProbe_path: /
   livenessProbe:
-    initialDelaySeconds: 30
+    initialDelaySeconds: 10
     periodSeconds: 5
     failureThreshold: 10

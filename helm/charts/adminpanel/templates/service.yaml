@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "hoppscotch.fullname" . }}
+  namespace: {{ .Values.namepsace }}
   labels:
 {{ include "hoppscotch.labels" . | indent 4 }}
 {{ include "hoppscotch.extra_labels" . | indent 4 }}
@@ -11,7 +12,6 @@ spec:
     - name: http
       port: {{ .Values.service.containerPort }}
       protocol: TCP
-
   selector:
     app.kubernetes.io/name: {{ include "hoppscotch.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
