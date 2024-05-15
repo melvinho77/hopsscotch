@@ -19,6 +19,5 @@ spec:
             - "-c"
             - |
               pnpx prisma migrate deploy
-          env:
-            {{- include "env" . | nindent 12 }}
+          env: {{- include "env" . | nindent 12 }}
       restartPolicy: OnFailure
