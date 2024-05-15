@@ -1,9 +1,9 @@
 dependencies:
-- name: admin
-  repository: file://./charts/admin
-  version: 0.4.0
 - name: backend
   repository: file://./charts/backend
+  version: 0.4.0
+- name: admin
+  repository: file://./charts/admin
   version: 0.4.0
 - name: application
   repository: file://./charts/app

@@ -3,13 +3,3 @@ name: hoppscotch
 description: Helm chart for hoppscotch system which contains adminpanel, app & backend.
 version: 0.4.0
 appVersion: 1.0.0
-dependencies:
-  - name: admin
-    version: "0.4.0"
-    repository: "file://./charts/admin"
-  - name: backend
-    version: "0.4.0"
-    repository: "file://./charts/backend"
-  - name: application
-    version: "0.4.0"
-    repository: "file://./charts/app"
