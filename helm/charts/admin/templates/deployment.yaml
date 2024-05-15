@@ -30,7 +30,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: {{- include "env" . | nindent 12 }}
+          env: {{- include "env-admin" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.service.containerPort }}
