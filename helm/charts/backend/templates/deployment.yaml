@@ -9,7 +9,6 @@ metadata:
   annotations:
     "helm.sh/hook": post-install, post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded
-    "helm.sh/hook-weight": "-1"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -31,7 +30,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: {{- include "env" . | nindent 12 }}
+          env: {{- include "env-backend" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.service.containerPort }}

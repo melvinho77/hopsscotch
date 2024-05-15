@@ -39,7 +39,6 @@ resources:
     cpu: 500m
     memory: 1536Mi
 
-
 probes:
   readinessProbe_path: /ping
   readinessProbe_type: httpGet

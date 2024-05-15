@@ -3,10 +3,12 @@ kind: Job
 metadata:
   name: {{ include "hoppscotch.fullname" . }}-migration
   namespace: {{ .Values.namespace }}
+  labels:
+{{ include "hoppscotch.labels" . | indent 4 }}
+{{ include "hoppscotch.extra_labels" . | indent 4 }}
   annotations:
     "helm.sh/hook": post-install, post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded
-    "helm.sh/hook-weight": "-1"
 spec:
   template:
     spec:
@@ -14,10 +16,10 @@ spec:
         - name: {{ .Chart.Name }}-migration
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env: {{- include "env-backend" . | nindent 12 }}
           command:
             - "/bin/sh"
             - "-c"
             - |
               pnpx prisma migrate deploy
-          env: {{- include "env" . | nindent 12 }}
       restartPolicy: OnFailure

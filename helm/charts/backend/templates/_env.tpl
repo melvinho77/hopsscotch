@@ -1,4 +1,4 @@
-{{- define "env" -}}
+{{- define "env-backend" -}}
 - name: DATABASE_URL
   value: "postgresql://db:password@sige-basic-postgresql.sige-test.com:5432/db"
 - name: MAGIC_LINK_TOKEN_VALIDITY
