@@ -1,6 +1,6 @@
 replicaCount: 1
 
-namepsace: sige-test-devops
+namespace: sige-test-devops
 
 image:
   repository: hoppscotch/hoppscotch-admin
