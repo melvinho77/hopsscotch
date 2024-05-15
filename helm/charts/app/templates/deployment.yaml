@@ -8,7 +8,6 @@ metadata:
 {{ include "hoppscotch.extra_labels" . | indent 4 }}
   annotations:
     "helm.sh/hook": post-install, post-upgrade
-    "helm.sh/hook-delete-policy": hook-succeeded
     "helm.sh/hook-weight": "2"
 spec:
   replicas: {{ .Values.replicaCount }}

@@ -6,7 +6,7 @@ image:
   repository: hoppscotch/hoppscotch-admin
   tag: latest
   pullPolicy: Always
-# pullSecret: regcred
+  pullSecret:
 
 nameOverride: ""
 fullnameOverride: ""

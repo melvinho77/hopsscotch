@@ -14,9 +14,9 @@
 - name: SESSION_SECRET
   value: 'anothersecretcode123'
 - name: REDIRECT_URL
-  value: 'http://localhost:3000'
+  value: 'http://app-hoppscotch.sige-test.com'
 - name: WHITELISTED_ORIGINS
-  value: "http://localhost:3170,http://localhost:3000,http://localhost:3100"
+  value: "http://admin-hoppscotch.sige-test.com,http://app-hoppscotch.sige-test.com,http://admin-hoppscotch.sige-test.com"
 - name: VITE_ALLOWED_AUTH_PROVIDERS
   value: GOOGLE,GITHUB,MICROSOFT,EMAIL
 - name: GOOGLE_CLIENT_ID
@@ -24,7 +24,7 @@
 - name: GOOGLE_CLIENT_SECRET
   value: "*******************"
 - name: GOOGLE_CALLBACK_URL
-  value: "http://localhost:3170/v1/auth/google/callback"
+  value: "http://admin-hoppscotch.sige-test.com/v1/auth/google/callback"
 - name: GOOGLE_SCOPE
   value: "email, profile"
 - name: GITHUB_CLIENT_ID
@@ -32,7 +32,7 @@
 - name: GITHUB_CLIENT_SECRET
   value: c2ca2c437c7df7e6b5d914670dfcc6f73b54d849
 - name: GITHUB_CALLBACK_URL
-  value: "http://localhost:3170/v1/auth/github/callback"
+  value: "http://admin-hoppscotch.sige-test.com/v1/auth/github/callback"
 - name: GITHUB_SCOPE
   value: "user:email"
 - name: MAILER_SMTP_URL
