@@ -10,7 +10,7 @@
 - name: VITE_BACKEND_GQL_URL
   value: http://backend-hoppscotch.sige-test.com/graphql
 - name: VITE_BACKEND_WS_URL
-  value: ws://backend-hoppscotch.sige-test.com/graphql
+  value: wss://backend-hoppscotch.sige-test.com/graphql
 - name: VITE_BACKEND_API_URL
   value: http://backend-hoppscotch.sige-test.com/v1
 {{- end -}}

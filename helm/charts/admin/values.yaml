@@ -13,7 +13,7 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  containerPort: 8080
+  containerPort: 3100
 
 ingress:
   enabled: true
