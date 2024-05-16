@@ -16,7 +16,7 @@
 - name: REDIRECT_URL
   value: 'https://app-hoppscotch.sige-test.com'
 - name: WHITELISTED_ORIGINS
-  value: "https://admin-hoppscotch.sige-test.com,https://app-hoppscotch.sige-test.com,https://admin-hoppscotch.sige-test.com"
+  value: "https://admin-hoppscotch.sige-test.com,https://app-hoppscotch.sige-test.com,https://backend-hoppscotch.sige-test.com"
 - name: VITE_ALLOWED_AUTH_PROVIDERS
   value: GOOGLE,GITHUB,MICROSOFT,EMAIL
 - name: GOOGLE_CLIENT_ID
@@ -24,21 +24,21 @@
 - name: GOOGLE_CLIENT_SECRET
   value: "*******************"
 - name: GOOGLE_CALLBACK_URL
-  value: "https://admin-hoppscotch.sige-test.com/v1/auth/google/callback"
+  value: "https://backend-hoppscotch.sige-test.com/v1/auth/google/callback"
 - name: GOOGLE_SCOPE
   value: "email, profile"
 - name: GITHUB_CLIENT_ID
-  value: =Ov23ct9onMzNbOMFVxmy
+  value: Ov23lipHckg6Ff7hYiiR
 - name: GITHUB_CLIENT_SECRET
-  value: c2ca2c437c7df7e6b5d914670dfcc6f73b54d849
+  value: f882b007abfef327c2703078770192d41de72aab
 - name: GITHUB_CALLBACK_URL
-  value: "https://admin-hoppscotch.sige-test.com/v1/auth/github/callback"
+  value: https://backend-hoppscotch.sige-test.com/v1/auth/github/callback
 - name: GITHUB_SCOPE
-  value: "user:email"
+  value: user:email
 - name: MAILER_SMTP_URL
-  value: "smtp://host.docker.internal:1025"
+  value: smtp://127.0.0.1:1025
 - name: MAILER_ADDRESS_FROM
-  value: '"From Name Here" <yopjason@gmail.com>'
+  value: hohm-wm20@student.tarc.edu.my
 - name: RATE_LIMIT_TTL
   value: '60'
 - name: RATE_LIMIT_MAX

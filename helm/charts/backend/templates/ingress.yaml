@@ -9,11 +9,15 @@ metadata:
   labels:
 {{ include "hoppscotch.labels" . | indent 4 }}
 {{ include "hoppscotch.extra_labels" . | indent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
 spec:
+  ingressClassName: nginx
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
@@ -31,7 +35,7 @@ spec:
       paths:
         {{- range .paths }}
         - path: {{ . }}
-          pathType: ImplementationSpecific
+          pathType: Prefix
           backend:
             service:
               name: {{ $fullName }}

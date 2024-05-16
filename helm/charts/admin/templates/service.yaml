@@ -11,6 +11,7 @@ spec:
   ports:
     - name: http
       port: {{ .Values.service.containerPort }}
+      targetPort: http
       protocol: TCP
   selector:
     app.kubernetes.io/name: {{ include "hoppscotch.name" . }}
