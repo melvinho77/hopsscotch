@@ -2,6 +2,21 @@ replicaCount: 1
 
 namespace: sige-test-devops
 
+annotations:
+  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+  nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+  nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+  nginx.ingress.kubernetes.io/configuration-snippet: |
+    add_header Access-Control-Allow-Origin "https://application-hoppscotch.sige-test.com" always;
+    add_header Access-Control-Allow-Methods "POST, GET, OPTIONS" always;
+    add_header Access-Control-Allow-Credentials "true" always;
+    add_header Access-Control-Allow-Headers "Authorization, Content-Type" always;
+  nginx.ingress.kubernetes.io/enable-cors: "true"
+  nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+
 image:
   repository: hoppscotch/hoppscotch-frontend
   tag: latest
@@ -22,12 +37,12 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/force-ssl-redirect: "true"
   hosts:
-    - host: app-hoppscotch.sige-test.com
+    - host: frontend-hoppscotch.sige-test.com
       paths: ["/"]
   tls:
     - secretName: sige-test.com-tls-secret
       hosts:
-        - app-hoppscotch.sige-test.com
+        - frontend-hoppscotch.sige-test.com
 
 extra_labels:
   exposed-by-ingress: 'true'

@@ -7,8 +7,9 @@ metadata:
 {{ include "hoppscotch.labels" . | indent 4 }}
 {{ include "hoppscotch.extra_labels" . | indent 4 }}
   annotations:
-    "helm.sh/hook": post-install, post-upgrade
-    "helm.sh/hook-weight": "2"
+{{ with .Values.annotations }}
+{{ toYaml . | indent 4 }}
+{{ end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -30,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env: {{- include "env-app" . | nindent 12 }}
+          env: {{- include "env-application" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.service.containerPort }}
